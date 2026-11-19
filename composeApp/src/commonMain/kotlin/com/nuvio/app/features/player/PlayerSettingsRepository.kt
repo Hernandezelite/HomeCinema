@@ -46,9 +46,9 @@ data class PlayerSettingsUiState(
     val externalPlayerForwardSubtitles: Boolean = false,
     val externalPlayerSendSkipSegments: Boolean = false,
     val externalPlayerId: String? = ExternalPlayerPlatform.defaultPlayerId(),
-    val preferredAudioLanguage: String = AudioLanguageOption.DEVICE,
+    val preferredAudioLanguage: String = PreferredLanguageDefaults.AUDIO,
     val secondaryPreferredAudioLanguage: String? = null,
-    val preferredSubtitleLanguage: String = SubtitleLanguageOption.NONE,
+    val preferredSubtitleLanguage: String = PreferredLanguageDefaults.SUBTITLE,
     val secondaryPreferredSubtitleLanguage: String? = null,
     val subtitleStyle: SubtitleStyleState = SubtitleStyleState.DEFAULT,
     val streamReuseLastLinkEnabled: Boolean = false,
@@ -161,9 +161,9 @@ object PlayerSettingsRepository {
     private var externalPlayerForwardSubtitles = false
     private var externalPlayerSendSkipSegments = false
     private var externalPlayerId: String? = ExternalPlayerPlatform.defaultPlayerId()
-    private var preferredAudioLanguage = AudioLanguageOption.DEVICE
+    private var preferredAudioLanguage = PreferredLanguageDefaults.AUDIO
     private var secondaryPreferredAudioLanguage: String? = null
-    private var preferredSubtitleLanguage = SubtitleLanguageOption.NONE
+    private var preferredSubtitleLanguage = PreferredLanguageDefaults.SUBTITLE
     private var secondaryPreferredSubtitleLanguage: String? = null
     private var subtitleStyle = SubtitleStyleState.DEFAULT
     private var streamReuseLastLinkEnabled = false
@@ -263,9 +263,9 @@ object PlayerSettingsRepository {
         externalPlayerForwardSubtitles = false
         externalPlayerSendSkipSegments = false
         externalPlayerId = ExternalPlayerPlatform.defaultPlayerId()
-        preferredAudioLanguage = AudioLanguageOption.DEVICE
+        preferredAudioLanguage = PreferredLanguageDefaults.AUDIO
         secondaryPreferredAudioLanguage = null
-        preferredSubtitleLanguage = SubtitleLanguageOption.NONE
+        preferredSubtitleLanguage = PreferredLanguageDefaults.SUBTITLE
         secondaryPreferredSubtitleLanguage = null
         subtitleStyle = SubtitleStyleState.DEFAULT
         streamReuseLastLinkEnabled = false
@@ -364,12 +364,12 @@ object PlayerSettingsRepository {
             ?: ExternalPlayerPlatform.defaultPlayerId()
         preferredAudioLanguage =
             normalizeLanguageCode(PlayerSettingsStorage.loadPreferredAudioLanguage())
-                ?: AudioLanguageOption.DEVICE
+                ?: PreferredLanguageDefaults.AUDIO
         secondaryPreferredAudioLanguage =
             normalizeLanguageCode(PlayerSettingsStorage.loadSecondaryPreferredAudioLanguage())
         preferredSubtitleLanguage =
             normalizeLanguageCode(PlayerSettingsStorage.loadPreferredSubtitleLanguage())
-                ?: SubtitleLanguageOption.NONE
+                ?: PreferredLanguageDefaults.SUBTITLE
         secondaryPreferredSubtitleLanguage =
             normalizeLanguageCode(PlayerSettingsStorage.loadSecondaryPreferredSubtitleLanguage())
         subtitleStyle = SubtitleStyleState(
@@ -646,7 +646,7 @@ object PlayerSettingsRepository {
 
     fun setPreferredAudioLanguage(language: String) {
         ensureLoaded()
-        val normalized = normalizeLanguageCode(language) ?: AudioLanguageOption.DEVICE
+        val normalized = normalizeLanguageCode(language) ?: PreferredLanguageDefaults.AUDIO
         if (preferredAudioLanguage == normalized) return
         preferredAudioLanguage = normalized
         publish()
@@ -664,7 +664,7 @@ object PlayerSettingsRepository {
 
     fun setPreferredSubtitleLanguage(language: String) {
         ensureLoaded()
-        val normalized = normalizeLanguageCode(language) ?: SubtitleLanguageOption.NONE
+        val normalized = normalizeLanguageCode(language) ?: PreferredLanguageDefaults.SUBTITLE
         if (preferredSubtitleLanguage == normalized) return
         preferredSubtitleLanguage = normalized
         publish()
