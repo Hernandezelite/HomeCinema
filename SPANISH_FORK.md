@@ -1,4 +1,4 @@
-# HomeCinema (HomeCinema)
+# HomeCinema (fork de Nuvio)
 
 Fork de Nuvio enfocado en español. Mantiene **compatibilidad total con los addons y
 plugins de la comunidad**: no se ha cambiado ningún manifest, contrato ni formato
@@ -32,6 +32,11 @@ quieras.
 El `applicationId` (`com.nuvio.app`) se mantiene igual a propósito para no romper
 addons ni contratos de la comunidad. Si quieres instalarlo junto a la app oficial,
 cámbialo en `androidApp/build.gradle.kts`.
+
+El nombre interno de Gradle (`rootProject.name = "Nuvio"`) y el paquete de
+recursos Compose (`nuvio.composeapp.generated.resources`) también se conservan:
+son identificadores de compilación, no el nombre visible de la app. Cambiarlos
+rompería los imports de recursos de todo el proyecto.
 
 ## Compilación
 
