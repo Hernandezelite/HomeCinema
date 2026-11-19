@@ -1,44 +1,44 @@
-> ðŸ§© HomeCinema: fork enfocado en espaÃ±ol. Consulta [SPANISH_FORK.md](SPANISH_FORK.md).
+> 🧩 HomeCinema: fork enfocado en español. Consulta [SPANISH_FORK.md](SPANISH_FORK.md).
 
 <div align="center">
 
-  <img src="https://nuvio.tv/assets/nuvio-app-logo-wordmark.webp" alt="Nuvio" width="320" />
+  <img src="homecinema-icon.png" alt="HomeCinema" width="320" />
 
   <p>
-    A free, open-source media app for your phone, your desktop, and the TV you already own.
-    <br />
-    Bring your own sources. Nuvio turns them into a library with artwork, ratings, subtitles, and your place saved on every screen.
+    Una app de cine en casa libre y de código abierto para tu teléfono, tu escritorio
+    y la tele que ya tienes. Español por defecto, sin filtrar contenido.
   </p>
 
-  [Website](https://nuvio.tv) · [GitHub releases](https://github.com/NuvioMedia/NuvioMobile/releases/latest) · [Support Nuvio](https://nuvio.tv/support)
+  [Sitio web](https://nuvio.tv) · [Releases](https://github.com/Hernandezelite/HomeCinema/releases/latest) · [Apoyar](https://nuvio.tv/support)
 
 </div>
 
-## Get Nuvio Mobile
+## Descargar HomeCinema
 
-- [Android on Google Play](https://play.google.com/store/apps/details?id=com.nuvio.app)
-- [Android APK](https://github.com/NuvioMedia/NuvioMobile/releases/latest)
-- iOS via AltStore or SideStore: add [this source URL](https://raw.githubusercontent.com/NuvioMedia/NuvioMobile/cmp-rewrite/store.json) in the app's Sources section, then install Nuvio.
-- iOS beta builds: add [the beta source URL](https://raw.githubusercontent.com/NuvioMedia/NuvioMobile/cmp-rewrite/store-beta.json) instead to get pre-releases as well.
+- [Android APK](https://github.com/Hernandezelite/HomeCinema/releases/latest)
+- iOS con AltStore o SideStore: añade esta URL de fuente en la sección Sources de la app:
+  https://raw.githubusercontent.com/Hernandezelite/HomeCinema/cmp-rewrite/store.json
+- iOS beta: usa esta otra fuente para incluir pre-releases:
+  https://raw.githubusercontent.com/Hernandezelite/HomeCinema/cmp-rewrite/store-beta.json
 
-## Build from source
+## Compilar desde el código
 
 ```bash
-git clone https://github.com/NuvioMedia/NuvioMobile.git
-cd NuvioMobile
+git clone https://github.com/Hernandezelite/HomeCinema.git
+cd HomeCinema
 ```
 
 ### Android
 
-Android development requires Android Studio and the Android SDK.
+Requiere Android Studio y el SDK de Android.
 
 ```bash
-./gradlew :androidApp:assembleFullDebug
+./gradlew :androidApp:assembleDebug -Pnuvio.android.distribution=full
 ```
 
 ### iOS
 
-iOS development requires macOS and Xcode.
+Requiere macOS y Xcode.
 
 ```bash
 env NUVIO_IOS_DISTRIBUTION=full xcodebuild \
@@ -51,8 +51,8 @@ env NUVIO_IOS_DISTRIBUTION=full xcodebuild \
   build
 ```
 
-The shared app is built with Kotlin Multiplatform and Compose Multiplatform.
+La app compartida está construida con Kotlin Multiplatform y Compose Multiplatform.
 
-## License
+## Licencia
 
 [GNU General Public License v3.0](./LICENSE)
