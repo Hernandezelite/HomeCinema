@@ -1,4 +1,4 @@
-rootProject.name = "HomeCinema"
+rootProject.name = "Nuvio"
 enableFeaturePreview("TYPESAFE_PROJECT_ACCESSORS")
 
 pluginManagement {
